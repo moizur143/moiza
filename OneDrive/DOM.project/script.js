@@ -1,22 +1,17 @@
-let add =document.querySelector('#add');
-let h4 =document.querySelector('h4');
-let check = 0;
+let con =document.querySelector('#container');
+let love =document.querySelector('i');
 
+con.addEventListener('dblclick',function(){
+    love.style.transform = 'translate(-50%,-50%) scale(1)'
+    love.style.opacity = 0.8
+    love.style.color = 'red'
 
-
-add.addEventListener('click',function(){
-    if(check == 0){
-    h4.innerHTML = 'Friend';
-    h4.style.color = 'green'
-    add.innerHTML = 'Remove'
-    check = 1
-    }else{
-        h4.innerHTML = 'Strangers';
-        h4.style.color = 'red'
-        add.innerHTML = 'Add Friend'
-
-        check = 0
-    }
     
+    setTimeout(function(){
+    love.style.transform = 'translate(-50%,-50%) scale(0)'
+    }, 2000)
 
+    setTimeout(function(){
+    love.style.opacity= 0
+    }, 1000)
 })
