@@ -1,6 +1,24 @@
-addEventListener('mousemove',(e)=> {
-    console.log(e.clientX, e.clientY)
+const para = document.querySelector('p');
+const character = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+const text = para.innerText
 
-    document.body.style.setProperty('--x' ,e.clientX + 'px')
-    document.body.style.setProperty('--y' ,e.clientY + 'px')
+let iteration = 0;
+
+para.addEventListener('mouseenter',()=>{
+    function randomText (){
+    const str = text.split("").map((char,index)=>{
+        if(index < iteration){
+            return char
+        }
+            return character.split("")[Math.floor(Math.random()*52)]
+    }).join("")
+
+        para.innerText = str
+
+        iteration += 0.5
+}
+
+setInterval(randomText, 30)
+
 })
+
